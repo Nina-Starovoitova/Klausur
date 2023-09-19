@@ -1,12 +1,13 @@
 package patterns.decorator;
 
 import java.io.*;
+import java.nio.file.Path;
 
 public class FileDataSource implements DataSource {
     private String name;
 
-    public FileDataSource(String name) {
-        this.name = name;
+    public FileDataSource(File name) {
+        this.name = name.getAbsolutePath();
     }
 
     @Override
