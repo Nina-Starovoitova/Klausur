@@ -1,4 +1,4 @@
-package patterns.Decorator;
+package patterns.decorator;
 
 public class DataSourceDecorator implements DataSource {
     private DataSource wrappee;

@@ -1,4 +1,4 @@
-package patterns.Decorator;
+package patterns.decorator;
 
 public interface DataSource {
     void writeData(String data);

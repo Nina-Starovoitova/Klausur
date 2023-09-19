@@ -1,11 +1,11 @@
-package patterns.Decorator;
-
-public class Demo {
+package patterns.decorator;
+// ToDo rename Demo and Decorator (package) and push into git.
+public class DecoratorRun {
     public static void main(String[] args) {
         String salaryRecords = "Name,Salary\nJohn Smith,100000\nSteven Jobs,912000";
-        DataSourceDecorator encoded = new CompressionDecorator(
-                new EncryptionDecorator(
-                        new FileDataSource("out/OutputDemo.txt")));
+        FileDataSource dataSource = new FileDataSource("out/OutputDemo.txt");
+        DataSourceDecorator encoded =
+                new CompressionDecorator(new EncryptionDecorator(dataSource));
         encoded.writeData(salaryRecords);
         DataSource plain = new FileDataSource("out/OutputDemo.txt");
 

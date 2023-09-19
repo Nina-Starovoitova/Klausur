@@ -1,4 +1,4 @@
-package patterns.Decorator;
+package patterns.decorator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

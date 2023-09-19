@@ -1,4 +1,4 @@
-package patterns.Decorator;
+package patterns.decorator;
 import java.util.Base64;
 public class EncryptionDecorator extends DataSourceDecorator {
 
