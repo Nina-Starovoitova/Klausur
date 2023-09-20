@@ -1,6 +1,7 @@
 package patterns.decorator;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.*;
 // ToDo rename Demo and Decorator (package) and push into git.
 public class DecoratorRun {
@@ -24,5 +25,13 @@ public class DecoratorRun {
         System.out.println(plain.readData());
         System.out.println("- Decoded --------------");
         System.out.println(encoded.readData());
+
+        String url = "https://www.stats.govt.nz/assets/Uploads/Business-operations-survey/Business-operations-survey-2022/Download-data/business-operations-survey-2022-price-and-wage-setting.csv";
+        URL csvUrl = new URL(url);
+        WebDataSource webDataSource = new WebDataSource(csvUrl);
+      //  DataSourceDecorator webEncoded =
+        //        new CompressionDecorator(new EncryptionDecorator(webDataSource));
+        System.out.println("- Input WEB CSV,----------------");
+        System.out.println(webDataSource.readData());
     }
 }

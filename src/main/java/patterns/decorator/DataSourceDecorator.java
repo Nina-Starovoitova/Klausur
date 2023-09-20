@@ -1,5 +1,7 @@
 package patterns.decorator;
 
+import java.net.MalformedURLException;
+
 public class DataSourceDecorator implements DataSource {
     private DataSource wrappee;
 
@@ -13,7 +15,7 @@ public class DataSourceDecorator implements DataSource {
     }
 
     @Override
-    public String readData() {
+    public String readData()  {
         return wrappee.readData();
     }
 }
