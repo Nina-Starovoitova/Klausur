@@ -1,16 +1,14 @@
 package patterns.decorator;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
+import com.opencsv.*;
 
 public class WebDataSource implements DataSource {
     private final URL url;
@@ -22,21 +20,27 @@ public class WebDataSource implements DataSource {
 
 
     @Override
-    public void writeData(String data) {
-
+    public void writeData(String outputPath) {
+        try {
+            FileWriter fileWriter = new FileWriter(outputPath);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+            List<String[]> content = this.reader.readAll();
+            csvWriter.writeAll(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public String readData() {
-        BufferedReader in = null;
         String content= "";
         try {
-            in = new BufferedReader(new InputStreamReader(this.url.openStream()));
-
+            BufferedReader in = new BufferedReader(new InputStreamReader(this.url.openStream()));
             this.reader = new CSVReader(in);
             String row;
             while ((row = in.readLine()) != null) {
-                content +=row;
+                content += row;
             }
             in.close();
         } catch (Exception e) {
@@ -44,6 +48,6 @@ public class WebDataSource implements DataSource {
         }
         return content;
     }
-    // ToDo find a datasource and implement pull data and save as a file on a HD.
+    // ToDo save as a file on a HD.
 
 }
