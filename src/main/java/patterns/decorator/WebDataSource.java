@@ -12,7 +12,7 @@ import com.opencsv.*;
 
 public class WebDataSource implements DataSource {
     private final URL url;
-    private CSVReader reader;
+    private List<String[]> reader;
 
     public WebDataSource(URL csvUrl) {
         this.url = csvUrl;
@@ -24,7 +24,7 @@ public class WebDataSource implements DataSource {
         try {
             FileWriter fileWriter = new FileWriter(outputPath);
             CSVWriter csvWriter = new CSVWriter(fileWriter);
-            List<String[]> content = this.reader.readAll();
+            List<String[]> content = this.reader;
             csvWriter.writeAll(content);
         } catch (IOException e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class WebDataSource implements DataSource {
         String content= "";
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(this.url.openStream()));
-            this.reader = new CSVReader(in);
+            this.reader = new CSVReader(in).readAll();
             String row;
             while ((row = in.readLine()) != null) {
                 content += row;
@@ -48,6 +48,5 @@ public class WebDataSource implements DataSource {
         }
         return content;
     }
-    // ToDo save as a file on a HD.
 
 }
