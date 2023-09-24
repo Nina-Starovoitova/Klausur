@@ -39,8 +39,6 @@ public class DecoratorRun {
 
 
         WebDataSource webDataSource = new WebDataSource(csvUrl, outDir + "/data.csv");
-        //  DataSourceDecorator webEncoded =
-        //        new CompressionDecorator(new EncryptionDecorator(webDataSource));
         System.out.println("- Input WEB CSV,----------------");
         String data = webDataSource.readData();
         System.out.println(data);

@@ -1,6 +1,6 @@
 package patterns.exceptions;
 
-// Abstract class representing a bank product
+
 abstract class BankProductAbstr {
     private String name;
     private double interestRate;

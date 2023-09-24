@@ -4,8 +4,6 @@ import patterns.exceptions.exception.InsufficientFundsException;
 
 import java.util.Arrays;
 
-// BankAccount class representing individual bank accounts
-
 class BankAccount extends BankProductAbstr implements AccountInt {
     private double balance;
     private Customer owner;
@@ -20,6 +18,7 @@ class BankAccount extends BankProductAbstr implements AccountInt {
         transactionCount = 0;
     }
 
+    @Override
     public double calculateInterest() {
 
         double interest = getBalance() * getInterestRate();

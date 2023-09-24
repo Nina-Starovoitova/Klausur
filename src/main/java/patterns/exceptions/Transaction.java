@@ -1,6 +1,6 @@
 package patterns.exceptions;
 
-// Transaction class to record transaction history
+
 class Transaction {
     private String description;
     private double amount;
