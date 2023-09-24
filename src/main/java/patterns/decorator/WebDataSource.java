@@ -28,7 +28,7 @@ public class WebDataSource implements DataSource {
             csvWriter.writeAll(content);
         } catch (IOException e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 
