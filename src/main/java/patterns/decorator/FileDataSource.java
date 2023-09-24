@@ -1,7 +1,10 @@
 package patterns.decorator;
 
-import java.io.*;
-import java.nio.file.Path;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
 
 public class FileDataSource implements DataSource {
     private String name;
@@ -13,7 +16,7 @@ public class FileDataSource implements DataSource {
     @Override
     public void writeData(String data) {
         File file = new File(name);
-        try (OutputStream fos = new FileOutputStream(file)) {
+        try (OutputStream fos = Files.newOutputStream(file.toPath())) {
             fos.write(data.getBytes(), 0, data.length());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
