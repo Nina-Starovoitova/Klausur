@@ -8,10 +8,13 @@ import java.util.Random;
 // Класс, представляющий повара шаурмы
 class ShawarmaChef {
     public void cookShawarma(Refrigerator fridge) throws CookingException {
+        Random rand = new Random();
+        int takeChicken  = rand.nextInt(3)  ;
+        int takeVeggies = rand.nextInt(3);
         try {
             // Готовим шаурму, используя ингредиенты из холодильника
-            fridge.takeChicken(1);
-            fridge.takeVeggies(1);
+            fridge.takeChicken(takeChicken);
+            fridge.takeVeggies(takeVeggies);
             // Процесс приготовления...
             if (new Random().nextBoolean()) {
                 throw new CookingException("Ошибка при готовке шаурмы: сгорело!");
