@@ -2,6 +2,8 @@ package shawerma;
 
 import shawerma.exceptions.IngredientShortageException;
 
+import java.util.Random;
+
 // Класс, представляющий холодильник с ингредиентами
 class Refrigerator {
     private int chicken;
