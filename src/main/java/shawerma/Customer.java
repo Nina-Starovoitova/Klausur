@@ -2,11 +2,16 @@ package shawerma;
 
 import shawerma.exceptions.CookingException;
 import shawerma.exceptions.SalesException;
+import java.util.Random;
 
 // Класс, представляющий покупателя шаурмы
 class Customer {
-    public static void main(String[] args) {
-        Refrigerator fridge = new Refrigerator(2, 3);
+    public static void  main(String[] args) {
+        Random rand = new Random();
+        int initialChicken  = rand.nextInt(10)  ;
+        int initialVeggies = rand.nextInt(10);
+        System.out.println("Курица: " + (initialChicken) + " шт. " +  " Овощи: " +  initialVeggies + " шт.");
+        Refrigerator fridge = new Refrigerator( initialChicken, initialVeggies);
         ShawarmaChef chef = new ShawarmaChef();
         ShawarmaVendor vendor = new ShawarmaVendor();
         try {
