@@ -6,6 +6,7 @@ import shawerma.exceptions.SalesException;
 // Класс, представляющий покупателя шаурмы
 class Customer {
     public static void main(String[] args) {
+
         Refrigerator fridge = new Refrigerator(2, 3);
         ShawarmaChef chef = new ShawarmaChef();
         ShawarmaVendor vendor = new ShawarmaVendor();
