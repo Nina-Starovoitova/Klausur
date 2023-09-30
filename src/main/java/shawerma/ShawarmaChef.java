@@ -6,7 +6,7 @@ import shawerma.exceptions.IngredientShortageException;
 import java.util.Random;
 
 // Класс, представляющий повара шаурмы
-class ShawarmaChef {
+public class ShawarmaChef {
     public void cookShawarma(Refrigerator fridge) throws CookingException {
         Random rand = new Random();
         int takeChicken  = rand.nextInt(3)  ;
