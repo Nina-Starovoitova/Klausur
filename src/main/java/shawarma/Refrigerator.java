@@ -1,8 +1,6 @@
-package shawerma;
+package shawarma;
 
-import shawerma.exceptions.IngredientShortageException;
-
-import java.util.Random;
+import shawarma.exceptions.IngredientShortageException;
 
 // Класс, представляющий холодильник с ингредиентами
 class Refrigerator {

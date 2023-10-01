@@ -1,5 +1,5 @@
-package shawerma;
-import shawerma.exceptions.SalesException;
+package shawarma;
+import shawarma.exceptions.SalesException;
 import java.util.Random;
 
 // Класс, представляющий продавца шаурмы

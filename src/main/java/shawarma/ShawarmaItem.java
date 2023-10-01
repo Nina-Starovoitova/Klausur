@@ -1,4 +1,4 @@
-package shawerma;
+package shawarma;
 
 class ShawarmaItem implements ShawarmaInt{
 
@@ -18,6 +18,14 @@ class ShawarmaItem implements ShawarmaInt{
     @Override
     public double getPrice() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ShawarmaItem{" +
+                "price= Euro" + price +
+                ", Shawarmaname='" + name + '\'' +
+                '}';
     }
 }
 

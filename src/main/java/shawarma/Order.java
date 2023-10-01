@@ -1,4 +1,4 @@
-package shawerma;
+package shawarma;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package shawerma;
+package shawarma;
 
-import shawerma.exceptions.CookingException;
-import shawerma.exceptions.IngredientShortageException;
+import shawarma.exceptions.CookingException;
+import shawarma.exceptions.IngredientShortageException;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package shawerma;
+package shawarma;
 
 public interface ShawarmaInt {
 

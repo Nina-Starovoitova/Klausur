@@ -1,4 +1,4 @@
-package shawerma.exceptions;
+package shawarma.exceptions;
 
 // Исключение, представляющее ошибку при продаже шаурмы
 public class SalesException extends Exception {

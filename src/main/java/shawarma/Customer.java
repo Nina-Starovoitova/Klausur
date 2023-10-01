@@ -1,7 +1,7 @@
-package shawerma;
+package shawarma;
 
-import shawerma.exceptions.CookingException;
-import shawerma.exceptions.SalesException;
+import shawarma.exceptions.CookingException;
+import shawarma.exceptions.SalesException;
 import java.util.Random;
 
 // Класс, представляющий покупателя шаурмы
