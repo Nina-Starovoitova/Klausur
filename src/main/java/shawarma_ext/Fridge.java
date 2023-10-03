@@ -22,9 +22,6 @@ class Fridge {
         int sumIngredients = this.ingredientsCount.getOrDefault(ingredient, 0) + quantity;
         this.ingredientsCount.put(ingredient, sumIngredients);
     }
-    public int ingredientQuantity (String ingredient){
-        return this.ingredientsCount.getOrDefault(ingredient,0);
-    }
 
     public boolean takeIngredient(String ingredient, int quantity) {
         if (getIngredientsQuantity(ingredient) >= quantity) {

@@ -33,7 +33,7 @@ class FridgeTest {
         String ingredient = "Tomato";
         int qty = 20;
         this.fridge.addIngredient(ingredient, qty);
-        assertEquals(qty, this.fridge.ingredientQuantity(ingredient));
+        assertEquals(qty, this.fridge.getIngredientsQuantity(ingredient));
     }
 
     @Test
@@ -44,7 +44,7 @@ class FridgeTest {
         int qty = 10;
         assertFalse(this.fridge.hasIngredient(ingredient));
         this.fridge.addIngredient(ingredient, 10);
-        assertEquals(this.fridge.ingredientQuantity(ingredient), qty);
+        assertEquals(this.fridge.getIngredientsQuantity(ingredient), qty);
         assertTrue(this.fridge.hasIngredient(ingredient));
         this.fridge.addIngredient(ingredient, qty);
         assertEquals(20, this.fridge.getIngredientsQuantity(ingredient));
