@@ -1,4 +1,4 @@
-package shawarma;
+package shawarma_ext;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
-package shawarma;
+package shawarma_ext;
 
-class ShawarmaItem implements ShawarmaInt{
+class ShawarmaItem implements ShawarmaInt {
 
     private  double price;
     private  String name;
