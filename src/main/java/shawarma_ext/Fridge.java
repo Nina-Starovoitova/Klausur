@@ -1,5 +1,7 @@
 package shawarma_ext;
 
+import shawarma_ext.exceptions.OutOfIngredientsException;
+
 import java.util.*;
 
 class Fridge {
@@ -23,12 +25,13 @@ class Fridge {
         this.ingredientsCount.put(ingredient, sumIngredients);
     }
 
-    public boolean takeIngredient(String ingredient, int quantity) {
+    public boolean takeIngredient(String ingredient, int quantity) throws OutOfIngredientsException{
         if (getIngredientsQuantity(ingredient) >= quantity) {
             int remaining = getIngredientsQuantity(ingredient) - quantity;
             this.ingredientsCount.put(ingredient, remaining);
             return true;
         }
-        return false;
+
+        throw new OutOfIngredientsException("shortage of products");
     }
 }

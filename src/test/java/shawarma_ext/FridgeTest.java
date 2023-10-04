@@ -3,6 +3,7 @@ package shawarma_ext;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import shawarma_ext.exceptions.OutOfIngredientsException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -59,14 +60,30 @@ class FridgeTest {
 
         String ingredient = "Apple";
         int qty = 10;
-        assertFalse(this.fridge.takeIngredient(ingredient, qty));
-        this.fridge.addIngredient(ingredient, 15);
-        assertFalse(this.fridge.takeIngredient(ingredient, qty + qty));
-        assertTrue(this.fridge.takeIngredient(ingredient, 15));
-        assertEquals(0, this.fridge.getIngredientsQuantity(ingredient));
-        this.fridge.addIngredient(ingredient, 30);
-        this.fridge.takeIngredient(ingredient, 15);
-        assertEquals(15, this.fridge.getIngredientsQuantity(ingredient));
+        try {
 
+            this.fridge.addIngredient(ingredient, 15);
+            assertTrue(this.fridge.takeIngredient(ingredient, 15));
+            assertEquals(0, this.fridge.getIngredientsQuantity(ingredient));
+            this.fridge.addIngredient(ingredient, 30);
+            this.fridge.takeIngredient(ingredient, 15);
+            assertEquals(15, this.fridge.getIngredientsQuantity(ingredient));
+        } catch (OutOfIngredientsException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void takeIngredientsOutOfStockTest() {
+        String ingredient = "Apple";
+        int qty = 10;
+        try {
+            this.fridge.addIngredient(ingredient, 15);
+            this.fridge.takeIngredient(ingredient, qty + qty);
+            fail("expected OutOfIngredientsException");
+        } catch (OutOfIngredientsException e) {
+            assertEquals("shortage of products", e.getMessage());
+        }
+        assertEquals(15, this.fridge.getIngredientsQuantity(ingredient));
     }
 }
